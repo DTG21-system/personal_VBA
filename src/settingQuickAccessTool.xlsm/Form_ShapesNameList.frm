@@ -96,6 +96,22 @@ Private Sub ListBox_Shapes_Change()
 End Sub
 
 '------------------------------
+'図形名称一覧_リストボックスキーボタン押下
+'------------------------------
+Private Sub ListBox_Shapes_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+
+    'エンターキーが押された場合
+    If KeyCode = vbKeyReturn Then
+        
+        'ユーザーフォームを閉じる
+        Unload Me
+        
+    End If
+
+End Sub
+
+
+'------------------------------
 '図形名称一覧_リネームボタン押下
 '------------------------------
 Private Sub Button_Rename_Click()
@@ -212,4 +228,5 @@ Function isDuplication(ByVal ws As Worksheet, _
     isDuplication = False
     
 End Function
+
 
