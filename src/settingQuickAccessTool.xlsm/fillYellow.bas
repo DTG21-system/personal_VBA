@@ -4,6 +4,18 @@ Attribute VB_Name = "fillYellow"
 '------------------------------
 Sub fillYellow()
     
+    '選択範囲が存在しない場合
+    If Selection Is Nothing Then
+        MsgBox "セルを選択してください。"
+        Exit Sub
+    End If
+
+    '選択範囲がセルではない場合
+    If TypeName(Selection) <> "Range" Then
+        MsgBox "セルを選択してください。"
+        Exit Sub
+    End If
+    
     '変数：選択範囲
     Dim range As range
     
