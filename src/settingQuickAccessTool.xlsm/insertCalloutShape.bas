@@ -11,8 +11,21 @@ Sub insertCalloutShape()
     '変数：図形
     Dim shape As shape
     
+    '選択範囲がセルではない場合
+    If TypeName(Selection) <> "Range" Then
+        MsgBox "セルを選択してください。"
+        Exit Sub
+    End If
+    
+    '選択範囲
+    Dim selectedRange As range: Set selectedRange = Selection
+    
+    '選択されているセルを取得
+    Dim selectedCellLeft As Double: selectedCellLeft = selectedRange.Left
+    Dim selectedCellTop As Double: selectedCellTop = selectedRange.Top
+    
     '吹き出し：線を挿入する
-    Set shape = ws.Shapes.AddShape(msoShapeLineCallout1, 100, 100, 200, 100)
+    Set shape = ws.Shapes.AddShape(msoShapeLineCallout1, selectedCellLeft, selectedCellTop, 200, 100)
     
     '吹き出しの塗りつぶしを白に設定する
     shape.Fill.ForeColor.RGB = RGB(255, 255, 255)
