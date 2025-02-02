@@ -19,4 +19,7 @@ Sub resetSheets()
     
     Next ws
     
+    '対象ブックの一番先頭のシートを表示する
+    ThisWorkbook.Sheets(1).Select
+    
 End Sub
