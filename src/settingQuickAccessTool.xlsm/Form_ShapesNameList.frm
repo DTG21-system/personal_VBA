@@ -2,9 +2,9 @@ VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Form_ShapesNameList 
    Caption         =   "ShapesNameList"
    ClientHeight    =   4170
-   ClientLeft      =   105
+   ClientLeft      =   110
    ClientTop       =   450
-   ClientWidth     =   4680
+   ClientWidth     =   4670
    OleObjectBlob   =   "Form_ShapesNameList.frx":0000
    StartUpPosition =   1  'オーナー フォームの中央
 End
