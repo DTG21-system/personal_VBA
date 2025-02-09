@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Form_ShapesNameList 
    Caption         =   "ShapesNameList"
-   ClientHeight    =   4170
-   ClientLeft      =   110
-   ClientTop       =   450
-   ClientWidth     =   4670
+   ClientHeight    =   4450
+   ClientLeft      =   -120
+   ClientTop       =   -600
+   ClientWidth     =   4660
    OleObjectBlob   =   "Form_ShapesNameList.frx":0000
    StartUpPosition =   1  'オーナー フォームの中央
 End
@@ -13,6 +13,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub TextBox_ShapeName_Change()
+
+End Sub
+
 '------------------------------
 '図形名称一覧_初期処理
 '対象シート内に存在する図形をユーザーフォームに一覧表示する
@@ -86,6 +90,15 @@ Private Sub ListBox_Shapes_Change()
             '対象の図形を選択状態にする
             shape.Select
             
+            '図形スクリーンフォーカスのチェックがついている場合
+            If CheckBox_ScreenForcus Then
+                
+                ' 図形の位置に画面表示を移動
+                ActiveWindow.ScrollColumn = shape.TopLeftCell.Column
+                ActiveWindow.ScrollRow = shape.TopLeftCell.Row
+
+            End If
+                        
             '繰り返し処理を抜ける
             Exit For
         
@@ -106,6 +119,14 @@ Private Sub ListBox_Shapes_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal
         'ユーザーフォームを閉じる
         Unload Me
         
+    End If
+    
+    'ESCキーが押下された時
+    If KeyCode = vbKeyEscape Then
+    
+        'ユーザーフォームを閉じる
+        Unload Me
+    
     End If
 
 End Sub
